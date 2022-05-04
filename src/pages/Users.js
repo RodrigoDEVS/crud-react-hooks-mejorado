@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 import EditUserForm from '../components/EditUserForm';
 import AddUserForm from '../components/AddUserForm';
 import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const Users = () => {
 
@@ -56,7 +57,7 @@ const Users = () => {
             <Button variant="success" onClick={()=>{setCreate(true)}}>Agregar Nuevo Usuario</Button>
             {create ? <AddUserForm setCreate={setCreate} addUser={addUser} users={users}/> : ''}
             {editing ? <EditUserForm currentUser={currentUser} updateUser={updateUser} /> : <UserTable users={users} deleteUser={deleteUser} editRow={editRow} />}
-            
+            <Button variant="secondary"><Link to={'/'} style={{textDecoration: 'none', color: 'white'}}>Salir</Link></Button>
             
         </div>
     )

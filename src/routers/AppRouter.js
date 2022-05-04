@@ -1,7 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LandingPage from '../pages/LandingPage';
-import Register from '../pages/Register';
 import Users from '../pages/Users';
 
 const AppRouter = () => {
@@ -9,7 +8,6 @@ const AppRouter = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<LandingPage/>}/>
-        <Route path="/register" element={<Register/>}/>
         <Route path="/users" element={<Users/>}/>
       </Routes>
     </BrowserRouter>
