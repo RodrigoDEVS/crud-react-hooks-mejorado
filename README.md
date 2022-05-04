@@ -14,7 +14,7 @@ se crea el componente con las rutas iniciales para la aplicación.
 
 se crea la Landing Page y se implementa dentro del App.js para que al cargar la aplicación arranque desde esta.
 
-### Implementación de Rutas
+### Refactorización de la Funcionalidad
 
 Se organizaron los componentes para que se encuentren en paquetes separados de acuerdo a su funcionalidad dentro de la aplicación, se crearon paquetes para las rutas, las páginas y los componentes funcionales.
 
