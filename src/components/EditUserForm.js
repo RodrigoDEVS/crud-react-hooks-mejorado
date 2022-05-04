@@ -3,6 +3,7 @@ import {Form, Button} from 'react-bootstrap'
 import { useForm } from 'react-hook-form'
 
 const EditUserForm = (props) => {
+    console.log(props)
     const { register, formState: { errors }, handleSubmit, setValue } = useForm({defaultValues: props.currentUser});
 
     setValue('name', props.currentUser.name)
@@ -16,7 +17,8 @@ const EditUserForm = (props) => {
 
     return (
         <div>
-            <h1>Formulario</h1>
+            <h1>Editar Usuario</h1>
+            
             <Form onSubmit={handleSubmit(onSubmit)}>
                 <Form.Group className="mb-3">
                     <Form.Label htmlFor="inputText">Nombre</Form.Label>
@@ -32,6 +34,7 @@ const EditUserForm = (props) => {
 
                 <Button variant="primary" type="submit">Editar Usuario</Button>
             </Form>
+            
         </div>
     )
 }
