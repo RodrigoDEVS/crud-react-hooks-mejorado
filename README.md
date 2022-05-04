@@ -19,3 +19,5 @@ se crea la Landing Page y se implementa dentro del App.js para que al cargar la 
 Se organizaron los componentes para que se encuentren en paquetes separados de acuerdo a su funcionalidad dentro de la aplicación, se crearon paquetes para las rutas, las páginas y los componentes funcionales.
 
 Se refactorizó la funcionalidad de mostrar usuarios y editar usuarios para que se muestren por los componentes de forma individual.
+
+Se agregó la funcionalidad para mostrar y esconder el formulario de registro.
