@@ -5,7 +5,7 @@ const Register = () => {
   return (
     <div className={'container'}>
         <h1>Registro de Usuario</h1>
-        <AddUserForm/>
+        <AddUserForm />
     </div>
   )
 }

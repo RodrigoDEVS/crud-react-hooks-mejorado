@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import UserTable from '../components/UserTable'
 import { v4 as uuidv4 } from 'uuid';
 import EditUserForm from '../components/EditUserForm';
+import AddUserForm from '../components/AddUserForm';
+import { Button } from 'react-bootstrap';
 
 const Users = () => {
 
@@ -14,9 +16,19 @@ const Users = () => {
     //state
     const [users, setUsers] = useState(usersData)
 
+    //Agregar Usuarios
+
+    const [create, setCreate] = useState(false)
+
+    const addUser = (user) => {
+        user.id = uuidv4()
+        setCreate(false)
+        setUsers([...users, user])
+    }
+
     //Eliminar Usuarios
     const deleteUser = (id) => {
-        setUsers(users.filter(user => user.id != id))
+        setUsers(users.filter(user => user.id !== id))
     }
 
     //Editar Usuario
@@ -39,9 +51,13 @@ const Users = () => {
 
     return (
         <div className='containter'>
+            
             <h1 style={{ textAlign: 'center' }} >Users</h1>
-            {/*<UserTable users={users} deleteUser={deleteUser} editRow={editRow}/>*/}
-            {editing?<EditUserForm currentUser={currentUser} updateUser={updateUser}/>:<UserTable users={users} deleteUser={deleteUser} editRow={editRow}/>}
+            <Button variant="success" onClick={()=>{setCreate(true)}}>Agregar Nuevo Usuario</Button>
+            {create ? <AddUserForm setCreate={setCreate} addUser={addUser} users={users}/> : ''}
+            {editing ? <EditUserForm currentUser={currentUser} updateUser={updateUser} /> : <UserTable users={users} deleteUser={deleteUser} editRow={editRow} />}
+            
+            
         </div>
     )
 }

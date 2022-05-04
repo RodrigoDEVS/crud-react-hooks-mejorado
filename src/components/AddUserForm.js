@@ -1,19 +1,17 @@
 import React from 'react'
 import { Form, Button } from 'react-bootstrap'
 import { useForm } from 'react-hook-form'
-import { useNavigate } from 'react-router-dom'
 
 const AddUserForm = (props) => {
 
+    console.log(props)
+    console.log(props.users)
     const { register, formState: { errors }, handleSubmit } = useForm();
-
-    const navigate = useNavigate();
 
     const onSubmit = (data, e) => {
         console.log(data)
         props.addUser(data)
         e.target.reset()
-        navigate('/')
     }
 
     return (
@@ -32,7 +30,7 @@ const AddUserForm = (props) => {
                         <p className='text-danger text-small d-block mb-2' >{errors.username && 'Campo Requerido'}</p>
                 </Form.Group>
 
-                <Button variant="primary" type="submit" href='/'>Agregar</Button>
+                <Button variant="primary" type="submit" >Agregar</Button>
             </Form>
         </div>
     )

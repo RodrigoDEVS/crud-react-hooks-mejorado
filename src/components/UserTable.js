@@ -1,12 +1,10 @@
 import React from 'react'
 import { Table, Button } from 'react-bootstrap'
-import {Link} from 'react-router-dom'
-import EditUserForm from './EditUserForm'
 
 const UserTable = (props) => {
-    console.log(props)
+    
     return (
-        <div>
+        <div className='mt-3'>
             <Table striped bordered hover>
                 <thead>
                     <tr>
