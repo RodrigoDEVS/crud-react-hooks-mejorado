@@ -23,3 +23,7 @@ Se refactorizó la funcionalidad de mostrar usuarios y editar usuarios para que 
 Se agregó la funcionalidad para mostrar y esconder el formulario de registro.
 
 Agregado el link en forma de botón de salida que nos lleva a la ruta '/' 
+
+### Persistencia de Datos
+
+Se agregó el useEffect para cargar los datos del localStorage y se modificaron los métodos del CRUD para que los datos sean redirigidos hacia el localStorage
