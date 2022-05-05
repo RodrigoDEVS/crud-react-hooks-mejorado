@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import UserTable from '../components/UserTable'
 import { v4 as uuidv4 } from 'uuid';
 import EditUserForm from '../components/EditUserForm';
@@ -15,7 +15,7 @@ const Users = () => {
     ]
 
     //state
-    const [users, setUsers] = useState(usersData)
+    const [users, setUsers] = useState([])
 
     //Agregar Usuarios
 
@@ -24,12 +24,16 @@ const Users = () => {
     const addUser = (user) => {
         user.id = uuidv4()
         setCreate(false)
-        setUsers([...users, user])
+        let userFinal = ([...users, user])
+        setUsers(userFinal)
+        localStorage.setItem('users', JSON.stringify(userFinal))
     }
 
     //Eliminar Usuarios
     const deleteUser = (id) => {
-        setUsers(users.filter(user => user.id !== id))
+        let userFinal = users.filter(user => user.id !== id)
+        setUsers(userFinal)
+        localStorage.setItem('users', JSON.stringify(userFinal))
     }
 
     //Editar Usuario
@@ -46,10 +50,24 @@ const Users = () => {
 
     const updateUser = (id, updatedUser) => {
         setEditing(false)
-        setUsers(users.map(user => (user.id === id ? updatedUser : user)))
-
+        let userFinal = users.map(user => (user.id === id ? updatedUser : user))
+        setUsers(userFinal)
+        localStorage.setItem('users', JSON.stringify(userFinal))
     }
 
+    //Cargar elementos del local storage para imprimirlos en la tabla al inicio de la aplicación
+    useEffect(() => {
+      let local = localStorage.getItem('users');
+      let base = [{ id: uuidv4(), name: 'Ben', username: 'Benisphere' }]
+      if(local != null){
+          setUsers(JSON.parse(local))
+      }else{
+          setUsers(base)
+          localStorage.setItem('users', JSON.stringify(base))
+      }    
+      
+    }, [])
+    
     return (
         <div className='containter'>
             
