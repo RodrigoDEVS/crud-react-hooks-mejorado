@@ -27,3 +27,7 @@ Agregado el link en forma de botón de salida que nos lleva a la ruta '/'
 ### Persistencia de Datos
 
 Se agregó el useEffect para cargar los datos del localStorage y se modificaron los métodos del CRUD para que los datos sean redirigidos hacia el localStorage
+
+## Video de Implementación
+
+https://youtu.be/6LZCGi9hDFc
